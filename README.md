@@ -1,2 +1,2 @@
-# 3.rocnik-projekt
+# Horror_SND
 niko je kokot
