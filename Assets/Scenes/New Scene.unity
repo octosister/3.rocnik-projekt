@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 359432956}
-  mouseSensitivity: 1000
+  mouseSensitivity: 600
   lerpSpeed: 10
 --- !u!81 &1085615018
 AudioListener:
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b738c98a0ccc2b4c97cf871423b5a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 30
+  walkSpeed: 20
   rb: {fileID: 0}
   moveDir: {x: 0, y: 0, z: 0}
   orientation: {fileID: 359432956}
@@ -878,7 +878,7 @@ Rigidbody:
   m_GameObject: {fileID: 1322611408}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 7
+  m_Drag: 6
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
