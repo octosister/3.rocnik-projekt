@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 359432956}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 437335136}
   - component: {fileID: 437335135}
   - component: {fileID: 437335134}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (1)
   m_TagString: PickUp
   m_Icon: {fileID: 0}
@@ -295,8 +295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486483402}
-  - component: {fileID: 486483403}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PickUpScript
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -318,23 +317,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1085615016}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &486483403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486483401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd53f002c4627ec46bf65935ee6b82bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCam: {fileID: 1085615016}
-  holdPosition: {fileID: 486483402}
-  pickUpDistance: 5
-  moveForce: 10
-  maxDistanceMultiplier: 1
 --- !u!1 &563792118
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 563792119}
   - component: {fileID: 563792120}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +424,7 @@ GameObject:
   - component: {fileID: 852289917}
   - component: {fileID: 852289916}
   - component: {fileID: 852289915}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (2)
   m_TagString: PickUp
   m_Icon: {fileID: 0}
@@ -574,8 +556,7 @@ GameObject:
   - component: {fileID: 1085615019}
   - component: {fileID: 1085615018}
   - component: {fileID: 1085615017}
-  - component: {fileID: 1085615020}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,28 +653,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1085615020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085615015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f524cac4f2747b4fb11c694dd9b39b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lensFlareType: 0
-  saturation: 1.02
-  threshold: 0.57
-  flareIntensity: 2.1
-  bloomIntensity: 0.65
-  iterations: 10
-  blurSpread: 1.039
-  downsample: 6
-  useDirt: 1
-  screenDirt: {fileID: 2800000, guid: d19849d0639712d4c9fc579a097e5028, type: 3}
 --- !u!1 &1291744383
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +774,8 @@ GameObject:
   - component: {fileID: 1322611411}
   - component: {fileID: 1322611410}
   - component: {fileID: 1322611415}
-  m_Layer: 0
+  - component: {fileID: 1322611416}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,6 +930,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashlight: {fileID: 563792120}
   playerCamera: {fileID: 1085615019}
+--- !u!114 &1322611416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322611408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd53f002c4627ec46bf65935ee6b82bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 1085615016}
+  holdPosition: {fileID: 486483402}
+  pickUpDistance: 5
+  moveSpeed: 10
+  maxVelocity: 20
 --- !u!1 &1834413961
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +960,7 @@ GameObject:
   - component: {fileID: 1834413964}
   - component: {fileID: 1834413963}
   - component: {fileID: 1834413962}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: PickUp
   m_Icon: {fileID: 0}
