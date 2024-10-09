@@ -181,7 +181,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437335133}
   serializedVersion: 4
-  m_Mass: 0.4
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -197,9 +197,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 2
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &437335135
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -312,11 +312,11 @@ Transform:
   m_GameObject: {fileID: 486483401}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3888191, z: 1.803}
-  m_LocalScale: {x: 1, y: 0.6281407, z: 1}
+  m_LocalPosition: {x: 0, y: -0.38099998, z: 1.803}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1322611409}
+  m_Father: {fileID: 1085615016}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &486483403
 MonoBehaviour:
@@ -333,7 +333,7 @@ MonoBehaviour:
   playerCam: {fileID: 1085615016}
   holdPosition: {fileID: 486483402}
   pickUpDistance: 5
-  moveForce: 500
+  moveForce: 10
   maxDistanceMultiplier: 1
 --- !u!1 &563792118
 GameObject:
@@ -568,7 +568,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852289914}
   serializedVersion: 4
-  m_Mass: 0.4
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -584,9 +584,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 2
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &852289916
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -705,7 +705,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 486483402}
   m_Father: {fileID: 713970086}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1085615017
@@ -947,7 +948,6 @@ Transform:
   m_Children:
   - {fileID: 359432956}
   - {fileID: 659856783}
-  - {fileID: 486483402}
   m_Father: {fileID: 681881205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1322611410
@@ -1108,7 +1108,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834413961}
   serializedVersion: 4
-  m_Mass: 0.4
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1124,9 +1124,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 2
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1834413963
 BoxCollider:
   m_ObjectHideFlags: 0
