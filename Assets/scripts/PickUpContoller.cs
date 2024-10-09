@@ -5,8 +5,8 @@ public class PickUpController : MonoBehaviour
     public Transform playerCam;        // Camera or reference point for where the object will float
     public Transform holdPosition;     // The position in front of the player where the object will float
     public float pickUpDistance = 1f;  // Max distance from which you can pick up objects (1 meter)
-    public float moveSpeed = 10f;      // Speed at which the object moves towards the hold position
-
+    public float moveForce = 500f;     // The force applied to move the object to the hold position
+    public float maxDistanceMultiplier = 1f;  // Used to dampen force when close to the hold position
     private GameObject heldObject;     // The object the player is holding
     private Rigidbody heldObjectRb;    // Rigidbody of the held object
 
@@ -59,9 +59,15 @@ public class PickUpController : MonoBehaviour
 
     void MoveObjectToHoldPosition()
     {
-        // Move the object smoothly towards the hold position
-        Vector3 moveDirection = holdPosition.position - heldObject.transform.position;
-        heldObjectRb.velocity = moveDirection * moveSpeed;  // Move towards holdPosition using velocity
+        // Calculate the direction from the object to the hold position
+        Vector3 directionToHoldPosition = holdPosition.position - heldObject.transform.position;
+        
+        // Calculate the force to apply, which scales down as the object gets closer to the hold position
+        float distance = directionToHoldPosition.magnitude;
+        float scaledForce = moveForce * Mathf.Clamp(distance * maxDistanceMultiplier, 0.1f, 1f);
+
+        // Apply force towards the hold position
+        heldObjectRb.AddForce(directionToHoldPosition.normalized * scaledForce, ForceMode.Force);
     }
 
     void DropObject()
@@ -71,7 +77,6 @@ public class PickUpController : MonoBehaviour
             heldObjectRb.useGravity = true;      // Re-enable gravity
             heldObjectRb.drag = 1;               // Reset drag to its original value
             heldObjectRb.constraints = RigidbodyConstraints.None;  // Remove any constraints
-            heldObjectRb.velocity = Vector3.zero;  // Stop any movement to avoid shooting the object away
         }
 
         heldObject = null;  // Clear reference to the held object
