@@ -16,10 +16,11 @@ public class CameraMovement : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
+        cameraRotation.x = Mathf.Clamp(cameraRotation.x, -90f, 90f);
+        
         cameraRotation.x -= mouseY;
         cameraRotation.y += mouseX;
-        cameraRotation.x = Mathf.Clamp(cameraRotation.x, -90f, 90f);
+        
 
         lerpedRotation = Vector2.Lerp(lerpedRotation, cameraRotation, Time.deltaTime * lerpSpeed);
 
