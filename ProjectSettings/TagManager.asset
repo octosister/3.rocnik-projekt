@@ -6,20 +6,19 @@ TagManager:
   tags:
   - Ground
   - PickUp
-  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - Player
   - 
   - 
   - 
   - 
-  - Objects
+  - 
+  - 
   - 
   - 
   - 

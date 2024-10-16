@@ -5,11 +5,10 @@ public class PickUpController : MonoBehaviour
     public Transform playerCam;        // Camera or reference point for where the object will float
     public Transform holdPosition;     // The position in front of the player where the object will float
     public float pickUpDistance = 1f;  // Max distance from which you can pick up objects (1 meter)
-    public float moveSpeed = 10f;      // Speed at which the object moves towards the hold position
-    public float maxVelocity = 20f;    // Maximum velocity of the object when it's being held
+    public float moveForce = 500f;     // The force applied to move the object to the hold position
+    public float maxDistanceMultiplier = 1f;  // Used to dampen force when close to the hold position
     private GameObject heldObject;     // The object the player is holding
     private Rigidbody heldObjectRb;    // Rigidbody of the held object
-    private Quaternion relativeRotation;  // To store the rotation relative to the player's camera
 
     void Update()
     {
@@ -55,29 +54,20 @@ public class PickUpController : MonoBehaviour
             heldObjectRb.useGravity = false;     // Disable gravity so it floats
             heldObjectRb.drag = 10;              // Increase drag to make movement smoother
             heldObjectRb.constraints = RigidbodyConstraints.FreezeRotation;  // Prevent it from rotating
-
-            // Calculate the relative rotation between the player camera and the object
-            relativeRotation = Quaternion.Inverse(playerCam.rotation) * heldObject.transform.rotation;
         }
     }
 
     void MoveObjectToHoldPosition()
     {
-        // Calculate the direction and velocity needed to move the object towards the hold position
-        Vector3 directionToHoldPosition = (holdPosition.position - heldObject.transform.position).normalized;
-        float distance = Vector3.Distance(heldObject.transform.position, holdPosition.position);
+        // Calculate the direction from the object to the hold position
+        Vector3 directionToHoldPosition = holdPosition.position - heldObject.transform.position;
+        
+        // Calculate the force to apply, which scales down as the object gets closer to the hold position
+        float distance = directionToHoldPosition.magnitude;
+        float scaledForce = moveForce * Mathf.Clamp(distance * maxDistanceMultiplier, 0.1f, 1f);
 
-        // Calculate the velocity towards the hold position
-        Vector3 targetVelocity = directionToHoldPosition * moveSpeed * distance;
-
-        // Clamp the velocity to avoid it moving too fast
-        targetVelocity = Vector3.ClampMagnitude(targetVelocity, maxVelocity);
-
-        // Apply the velocity to the object
-        heldObjectRb.velocity = targetVelocity;
-
-        // Update the object's rotation based on the player's camera rotation and the stored relative rotation
-        heldObject.transform.rotation = playerCam.rotation * relativeRotation;
+        // Apply force towards the hold position
+        heldObjectRb.AddForce(directionToHoldPosition.normalized * scaledForce, ForceMode.Force);
     }
 
     void DropObject()
@@ -87,9 +77,6 @@ public class PickUpController : MonoBehaviour
             heldObjectRb.useGravity = true;      // Re-enable gravity
             heldObjectRb.drag = 1;               // Reset drag to its original value
             heldObjectRb.constraints = RigidbodyConstraints.None;  // Remove any constraints
-
-            // Keep the velocity of the object when released, allowing it to maintain momentum
-            heldObjectRb.velocity = heldObjectRb.velocity;  // Momentum continues from current velocity
         }
 
         heldObject = null;  // Clear reference to the held object

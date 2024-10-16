@@ -659,7 +659,11 @@ MonoBehaviour:
   playerCam: {fileID: 1085615016}
   holdPosition: {fileID: 486483402}
   pickUpDistance: 5
+<<<<<<< HEAD
   moveForce: 500
+=======
+  moveForce: 10
+>>>>>>> parent of 7a5aced2 (...)
   maxDistanceMultiplier: 1
 --- !u!1 &563792118
 GameObject:
@@ -1080,7 +1084,10 @@ GameObject:
   - component: {fileID: 1085615018}
   - component: {fileID: 1085615017}
   - component: {fileID: 1085615020}
+<<<<<<< HEAD
   - component: {fileID: 1085615021}
+=======
+>>>>>>> parent of 7a5aced2 (...)
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1199,6 +1206,7 @@ MonoBehaviour:
   downsample: 6
   useDirt: 1
   screenDirt: {fileID: 2800000, guid: d19849d0639712d4c9fc579a097e5028, type: 3}
+<<<<<<< HEAD
 --- !u!114 &1085615021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1319,6 +1327,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of 7a5aced2 (...)
 --- !u!1 &1291744383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,9 +1450,14 @@ GameObject:
   - component: {fileID: 1322611411}
   - component: {fileID: 1322611410}
   - component: {fileID: 1322611415}
+<<<<<<< HEAD
   - component: {fileID: 1322611416}
   m_Layer: 0
   m_Name: Body
+=======
+  m_Layer: 0
+  m_Name: Player
+>>>>>>> parent of 7a5aced2 (...)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1597,6 +1612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashlight: {fileID: 563792120}
   playerCamera: {fileID: 1085615019}
+<<<<<<< HEAD
 --- !u!114 &1322611416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1714,6 +1730,8 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+=======
+>>>>>>> parent of 7a5aced2 (...)
 --- !u!1 &1834413961
 GameObject:
   m_ObjectHideFlags: 0
