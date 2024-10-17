@@ -25,7 +25,10 @@ public class PickUpController : MonoBehaviour
                 DropObject();
             }
         }
+    }
 
+    void FixedUpdate()
+    {
         if (heldObject != null)  // Move object to the hold position while it's picked up
         {
             MoveObjectToHoldPosition();
@@ -55,6 +58,9 @@ public class PickUpController : MonoBehaviour
             heldObjectRb.useGravity = false;     // Disable gravity so it floats
             heldObjectRb.drag = 10;              // Increase drag to make movement smoother
             heldObjectRb.constraints = RigidbodyConstraints.FreezeRotation;  // Prevent it from rotating
+
+            // Set the Rigidbody interpolation to reduce lagging
+            heldObjectRb.interpolation = RigidbodyInterpolation.Interpolate;
 
             // Calculate the relative rotation between the player camera and the object
             relativeRotation = Quaternion.Inverse(playerCam.rotation) * heldObject.transform.rotation;
@@ -90,6 +96,9 @@ public class PickUpController : MonoBehaviour
 
             // Keep the velocity of the object when released, allowing it to maintain momentum
             heldObjectRb.velocity = heldObjectRb.velocity;  // Momentum continues from current velocity
+
+            // Reset interpolation to None for normal physics behavior after release
+            heldObjectRb.interpolation = RigidbodyInterpolation.None;
         }
 
         heldObject = null;  // Clear reference to the held object
