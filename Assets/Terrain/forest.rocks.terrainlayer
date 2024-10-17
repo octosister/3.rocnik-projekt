@@ -6,8 +6,8 @@ TerrainLayer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NewLayer 5
-  m_DiffuseTexture: {fileID: 2800000, guid: 4f5393de7ce80d148b19cf9f89d74b86, type: 3}
+  m_Name: forest.rocks
+  m_DiffuseTexture: {fileID: 2800000, guid: bcdf685bbf6355e4895aeb58a20563ae, type: 3}
   m_NormalMapTexture: {fileID: 0}
   m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 2, y: 2}
