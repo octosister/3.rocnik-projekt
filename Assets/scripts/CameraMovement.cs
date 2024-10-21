@@ -5,7 +5,7 @@ public class CameraMovement : MonoBehaviour
     public Transform orientation;
     public float mouseSensitivity = 100f;
     private Vector2 cameraRotation, lerpedRotation;
-    public float lerpSpeed;
+    public float lerpSpeed = 2f; 
 
     void Start()
     {
@@ -21,7 +21,9 @@ public class CameraMovement : MonoBehaviour
         cameraRotation.y += mouseX;
         cameraRotation.x = Mathf.Clamp(cameraRotation.x, -90f, 90f);
 
-        lerpedRotation = Vector2.Lerp(lerpedRotation, cameraRotation, Time.deltaTime * lerpSpeed);
+        
+        
+        lerpedRotation = Vector2.Lerp(lerpedRotation, cameraRotation, lerpSpeed);
 
         transform.localRotation = Quaternion.Euler(lerpedRotation.x, lerpedRotation.y, 0f);
         orientation.localRotation = Quaternion.Euler(0f, lerpedRotation.y, 0f);
