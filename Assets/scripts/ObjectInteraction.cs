@@ -12,7 +12,7 @@ public class InteractableObject : MonoBehaviour
 
     public float liftDuration = 2f;
     public float liftHeight = 1f;
-    public float moveCloserDistance = 0.5f; // Vzdialenosť, o ktorú sa priblíži k hráčovi
+    public float moveCloserDistance = 0.5f; 
 
     private Vector3 originalPosition;
     private Quaternion originalRotation;
@@ -65,11 +65,11 @@ public class InteractableObject : MonoBehaviour
             playerMovement.enabled = false;
         }
 
-        // Získaj pozíciu hráča a vypočítaj novú cieľovú pozíciu
+        
         Vector3 playerPosition = player.transform.position;
         Vector3 targetPosition = transform.position + Vector3.up * liftHeight + (playerPosition - transform.position).normalized * moveCloserDistance;
 
-        Quaternion targetRotation = Quaternion.Euler(270f, 0f, 90f); 
+        Quaternion targetRotation = Quaternion.Euler(270f, 0f, -90f); 
 
         Vector3 startPosition = transform.position;
         Quaternion startRotation = transform.rotation;
