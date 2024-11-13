@@ -21,8 +21,8 @@ public class CameraMovement : MonoBehaviour
         cameraRotation.y += mouseX;
         cameraRotation.x = Mathf.Clamp(cameraRotation.x, -90f, 90f);
 
-        
-        
+
+
         lerpedRotation = Vector2.Lerp(lerpedRotation, cameraRotation, lerpSpeed);
 
         transform.localRotation = Quaternion.Euler(lerpedRotation.x, lerpedRotation.y, 0f);
